@@ -40,6 +40,12 @@ Instalar los tipos de la libreria **net**:
 
     npm install @types/node
 
+Instalar node-ts-dev:
+
+```
+    npm install @types/node
+```
+
 Correr servidor en modo desarrollo:
 
     npm run dev
