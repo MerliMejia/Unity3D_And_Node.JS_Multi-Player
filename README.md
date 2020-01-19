@@ -57,7 +57,8 @@ Correr servidor en modo produccion:
     npm run prod
 
 Codigo necesario para el archivo launch.json para usar el debugger de VSC:
-`{
+```
+{
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
@@ -72,7 +73,10 @@ Codigo necesario para el archivo launch.json para usar el debugger de VSC:
         "outFiles": ["${workspaceFolder}/Build/**/*.js"]
       }
     ]
-  }`
+  }
+  ```
   
   Parte a des-comentar en archivo tsconfig.json:
-  `"sourceMap": true,`
+  ```
+  "sourceMap": true,
+  ```
