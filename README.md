@@ -13,6 +13,8 @@ Puedes contactarme o hacerme cualquier pregunta a este correo: **merlimejia2@gma
 
 [1- Principios basicos, configurar proyecto y conectarse al servidor](https://youtu.be/zVfpNXHP3Mw)
 
+[2- Match Making 1VS1](https://youtu.be/WwI_tDqKS8Y)
+
 
 # Comandos utiles
 
@@ -54,3 +56,23 @@ Correr servidor en modo produccion:
 
     npm run prod
 
+Codigo necesario para el archivo launch.json para usar el debugger de VSC:
+`{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${workspaceFolder}/src/Server.ts",
+        "preLaunchTask": "tsc: build - tsconfig.json",
+        "outFiles": ["${workspaceFolder}/Build/**/*.js"]
+      }
+    ]
+  }`
+  
+  Parte a des-comentar en archivo tsconfig.json:
+  `"sourceMap": true,`
