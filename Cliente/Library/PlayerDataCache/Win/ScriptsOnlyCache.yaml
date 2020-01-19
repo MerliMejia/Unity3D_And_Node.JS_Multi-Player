@@ -26,7 +26,7 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 9876}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -98,6 +98,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: b5b85dc6b20d8ec1104761507af9a457
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Networking
   - hash:
       serializedVersion: 2
       Hash: 8e0313c6f5e2ce35991fec2d64f8eaab
@@ -446,13 +452,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: ffd97136a6691f163fc1149124f5d04d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Networking
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Dropbox/Proyectos Personales/Proyecto JavaRD/unity_nodejs/Cliente/build/Cliente.exe
+  playerPath: D:/Dropbox/Proyectos Personales/Proyecto JavaRD/unity_nodejs/Game/Cliente/build/Cliente.exe
