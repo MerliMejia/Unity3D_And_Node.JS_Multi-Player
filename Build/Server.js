@@ -19,10 +19,13 @@ var Timer_1 = __importDefault(require("./Utils/Timer"));
 var uuid_1 = __importDefault(require("uuid"));
 var Habitacion_1 = require("./MM/Habitacion");
 var timer = new Timer_1.default();
+//Lista de todos los jugadores buscando partida
 var buscarPartida = new Map();
+//Objeto con los diferentes comandos
 var comandos = {
     BUSCAR_PARTIDA: "BUSCAR_PARTIDA"
 };
+//Lista de todas las habitaciones 1VS1
 var habitacionesUnoVsUno = new Map();
 /**
  * @description Creamos un servidor TCP
@@ -37,13 +40,16 @@ var servidor = net.createServer(function (socket) {
         conectado = true;
         socket.write(Buffer.from("conectado", "utf-8"));
         timer.ejecutarDespuesDe(1).then(function () {
-            socket.write(Buffer.from("id: " + id, "utf-8"));
+            socket.write(Buffer.from("id: " + id, "utf-8")); //Enviamos el id al cliente
         });
     });
+    /**
+     * Recibimos informacion del cliente
+     */
     socket.on("data", function (data) {
         if (data.toString() == comandos.BUSCAR_PARTIDA) {
             console.log(id + " esta buscando partida");
-            buscarPartida.set(id, { id: id, conexion: socket });
+            buscarPartida.set(id, { id: id, conexion: socket }); //Agregamos el jugador a la lista de espera
         }
     });
     //Ejecuta algo cuando el cliente se desconecta

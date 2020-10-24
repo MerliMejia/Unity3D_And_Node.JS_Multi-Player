@@ -1,4 +1,9 @@
 "use strict";
+/**
+ * @author Merli Mejia - Email: merlimejia2@gmail.com
+ * @description Este archivo se encargara de aislar diferentes jugadores para poder hacer la comunicacion
+ * entre ellos mas facil y eficiente
+ */
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -13,9 +18,18 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Este metodo devuelve verdadero si el tipo de habitacion esta configurado para ser 1VS1
+ * @param jugadores Tipo: { jugador1: IJugador; jugador2: IJugador } | Map<String, IJugador>... Que tipo de
+ * configuracion o cantidad de jugadores es.
+ */
 function esUnoVsUno(jugadores) {
+    debugger;
     return jugadores == undefined;
 }
+/**
+ * Esta clase es la clase padre de donde heredaran todas las diferentes habitaciones o modos de juegos
+ */
 var Habitacion = /** @class */ (function () {
     function Habitacion(tipo) {
         this.jugador1 = null;
@@ -33,6 +47,9 @@ var Habitacion = /** @class */ (function () {
     }
     return Habitacion;
 }());
+/**
+ * Esta clase sera la encargada de comunicar los jugadores en el metodo 1VS1
+ */
 var UnoVsUo = /** @class */ (function (_super) {
     __extends(UnoVsUo, _super);
     function UnoVsUo(jugador1, jugador2) {

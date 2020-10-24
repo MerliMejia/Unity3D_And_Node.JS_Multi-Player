@@ -18,7 +18,7 @@ public class Networking : MonoBehaviour
     TcpClient cliente = new TcpClient();//Instancia de nuestro cliente TCP
     NetworkStream stream;//Lo usamos para leer y escribir en el servidor
 
-    const string IP = "192.168.0.2";//Direccion IP del servidor(al principio sera la ip de tu pc)
+    const string IP = "192.168.0.6";//Direccion IP del servidor(al principio sera la ip de tu pc)
     const int PUERTO = 8080;//Puerto en el cual esta corriendo el servidor
     const double memoria = 5e+6;//Significa 5mbs en bytes
     const int tiempoLimiteConexion = 5000;//Tiempo limite de conexion en milisegundos

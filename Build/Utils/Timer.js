@@ -6,17 +6,24 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Timer = /** @class */ (function () {
     function Timer(ejecutar, intervalo) {
-        this.intervalo = 60;
+        this.intervalo = 60; //Cantidad de veces que repetimos una accion por segundos
         if (intervalo !== undefined)
             this.intervalo = intervalo;
         if (ejecutar !== undefined)
             this.empezar(ejecutar);
     }
+    /**
+     * Este metodo comienza el setInterval
+     * @param ejecutar Funcion a ejecutar cada x intervalo
+     */
     Timer.prototype.empezar = function (ejecutar) {
         this.si = setInterval(function () {
             ejecutar();
         }, 1000 / this.intervalo);
     };
+    /**
+     * Detiene el setInterval
+     */
     Timer.prototype.parar = function () {
         clearInterval(this.si);
     };
