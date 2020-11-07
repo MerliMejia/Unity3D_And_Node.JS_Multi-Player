@@ -23,10 +23,11 @@ var timer = new Timer_1.default();
 var buscarPartida = new Map();
 //Objeto con los diferentes comandos
 var comandos = {
-    BUSCAR_PARTIDA: "BUSCAR_PARTIDA"
+    BUSCAR_PARTIDA: 'BUSCAR_PARTIDA',
 };
 //Lista de todas las habitaciones 1VS1
 var habitacionesUnoVsUno = new Map();
+var habitacionesDosVsDos = new Map();
 /**
  * @description Creamos un servidor TCP
  * @param socket Referencia al cliente conectado a nuestro servidor
@@ -38,31 +39,32 @@ var servidor = net.createServer(function (socket) {
     timer.ejecutarDespuesDe(1).then(function () {
         console.log(socket.remoteAddress + " se ha conectado");
         conectado = true;
-        socket.write(Buffer.from("conectado", "utf-8"));
+        socket.write(Buffer.from('conectado', 'utf-8'));
         timer.ejecutarDespuesDe(1).then(function () {
-            socket.write(Buffer.from("id: " + id, "utf-8")); //Enviamos el id al cliente
+            socket.write(Buffer.from("id: " + id, 'utf-8')); //Enviamos el id al cliente
         });
     });
     /**
      * Recibimos informacion del cliente
      */
-    socket.on("data", function (data) {
+    socket.on('data', function (data) {
         if (data.toString() == comandos.BUSCAR_PARTIDA) {
             console.log(id + " esta buscando partida");
             buscarPartida.set(id, { id: id, conexion: socket }); //Agregamos el jugador a la lista de espera
         }
     });
     //Ejecuta algo cuando el cliente se desconecta
-    socket.on("close", function () {
-        console.log("DESCONECTADO");
+    socket.on('close', function () {
+        console.log('DESCONECTADO');
     });
 });
 var PUERTO = 8080; //Puerto en el cual correra el servidor
 //Pone nuestro servidor a escuchar peticiones en un puerto especifico
 servidor.listen(PUERTO, function () {
-    console.log("CORRIENDO EN EL PUERTO " + PUERTO);
-    console.log("Esperando jugadores que busquen partida...");
+    console.log('CORRIENDO EN EL PUERTO ' + PUERTO);
+    console.log('Esperando jugadores que busquen partida...');
     var busquedaTimer = new Timer_1.default(function () {
+        //se ejecuta 60 veces cada segundo
         if (buscarPartida.size >= 2) {
             var jugadores_1 = [];
             buscarPartida.forEach(function (j) {
@@ -73,6 +75,17 @@ servidor.listen(PUERTO, function () {
             buscarPartida.delete(jugadores_1[0].id);
             buscarPartida.delete(jugadores_1[1].id);
         }
+        // if (buscarPartida.size >= 4) {
+        //   let jugadores: Map<String, IJugador> = new Map<String, IJugador>();
+        //   buscarPartida.forEach((j) => {
+        //     jugadores.set(j.id, j);
+        //   });
+        //   let habId = uuid();
+        //   habitacionesDosVsDos.set(habId, new DosVsDos(jugadores));
+        //   jugadores.forEach((v, k) => {
+        //     buscarPartida.delete(v.id);
+        //   });
+        // }
     });
 });
 //# sourceMappingURL=Server.js.map

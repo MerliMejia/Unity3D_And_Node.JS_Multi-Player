@@ -24,8 +24,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * configuracion o cantidad de jugadores es.
  */
 function esUnoVsUno(jugadores) {
-    debugger;
-    return jugadores == undefined;
+    return (jugadores.jugador1 !==
+        undefined);
 }
 /**
  * Esta clase es la clase padre de donde heredaran todas las diferentes habitaciones o modos de juegos
@@ -36,13 +36,15 @@ var Habitacion = /** @class */ (function () {
         this.jugador2 = null;
         this.jugadores = null;
         if (esUnoVsUno(tipo)) {
-            this.config = { modo: "1VS1" };
+            this.config = { modo: '1VS1' };
             this.jugador1 = tipo.jugador1;
             this.jugador2 = tipo.jugador2;
+            console.log('HAB 1VS1 CREADA');
         }
         else {
-            this.config = { modo: "2VS2" };
+            this.config = { modo: '2VS2' };
             this.jugadores = tipo;
+            console.log('HAB 2VS2 CREADA');
         }
     }
     return Habitacion;
@@ -58,4 +60,12 @@ var UnoVsUo = /** @class */ (function (_super) {
     return UnoVsUo;
 }(Habitacion));
 exports.UnoVsUo = UnoVsUo;
+var DosVsDos = /** @class */ (function (_super) {
+    __extends(DosVsDos, _super);
+    function DosVsDos(jugadores) {
+        return _super.call(this, jugadores) || this;
+    }
+    return DosVsDos;
+}(Habitacion));
+exports.DosVsDos = DosVsDos;
 //# sourceMappingURL=Habitacion.js.map

@@ -23,7 +23,7 @@ public class Networking : MonoBehaviour
     const double memoria = 5e+6;//Significa 5mbs en bytes
     const int tiempoLimiteConexion = 5000;//Tiempo limite de conexion en milisegundos
 
-    public byte[] data = new byte[(int) memoria];//Donde almacenamos lo que viene del servidor
+    public byte[] data = new byte[(int)memoria];//Donde almacenamos lo que viene del servidor
     public bool corriendo = false;//Para saber si el cliente esta corriendo
 
     public string id = "";
@@ -37,7 +37,7 @@ public class Networking : MonoBehaviour
         //Intentamos conectarnos al servidor
         conectar((bool res) =>
         {
-            if(res == true)
+            if (res == true)
             {
                 conectado = true;
                 stream = cliente.GetStream();//Obtenemos la instancia del stream de la conexion
@@ -59,7 +59,7 @@ public class Networking : MonoBehaviour
      */
     public void leerComando(string comando)
     {
-        if(comando == "conectado")
+        if (comando == "conectado")
         {
             Debug.Log("CONECTADO AL SERVIDOR");
         }
@@ -115,8 +115,8 @@ public class Networking : MonoBehaviour
 
     private void Update()
     {
-        
-        if(corriendo == true)
+
+        if (corriendo == true)
         {
             if (stream.DataAvailable)//Asi sabemos si el servidor ha enviado algo
             {
